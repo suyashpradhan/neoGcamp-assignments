@@ -6,7 +6,6 @@ const calculateLengthFunc = (item) => item.length;
 
 //! Find the number of strings with similar number of characters.
 let arrayLength = stringArray.map(calculateLengthFunc);
-console.log(arrayLength);
 
 //! Return an array with strings which have vowels
 let vowelsArray = stringArray.filter((vowel) => vowel.match(/[aeiou]/));
@@ -16,5 +15,24 @@ console.log(vowelsArray);
 const characterArray = stringArray.map((item) => {
   return { [item]: calculateLengthFunc(item) };
 });
-
 console.log(characterArray);
+
+const strArr = [
+  "Apple",
+  "Mango",
+  "Orange",
+  "Papaya",
+  "Grape",
+  "Banana",
+  "Cherry",
+  "Guava",
+  "Watermelon",
+  "ccnnmmvvtt",
+];
+
+const lenObj = (obj, item) =>
+  isNaN(obj[item.length])
+    ? { ...obj, [item.length]: 1 }
+    : { ...obj, [item.length]: obj[item.length] + 1 };
+const strLenObj = strArr.reduce(lenObj, {});
+console.log(strLenObj);
